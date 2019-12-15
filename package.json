@@ -1,0 +1,76 @@
+{
+  "name": "kuso-app",
+  "version": "1.0.0",
+  "description": "クソアプリ",
+  "main": "src/index.ts",
+  "private": false,
+  "scripts": {
+    "start": "webpack-dev-server --progress",
+    "prebuild": "rimraf dist",
+    "build": "npm run type-check && npm-run-all --parallel lint:fix test:no-coverage webpack:prod",
+    "type-check": "tsc",
+    "lint:fix": "eslint --ext ./ \"src/**/*.ts\"  --fix",
+    "test:no-coverage": "jest --no-coverage",
+    "webpack:prod": "webpack --progress --display-modules --mode=production",
+    "postbuild": "echo \"build successful!!\"",
+    "webpack:dev": "webpack --progress --display-modules --mode=development",
+    "test": "jest",
+    "test:dev": "jest --watch --no-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aclearworld/kuso-app.git"
+  },
+  "keywords": [
+    "kuso-app"
+  ],
+  "author": "kotatu <yamamichi1995@outlook.jp> (https://github.com/aclearworld)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aclearworld/kuso-app/issues"
+  },
+  "homepage": "https://github.com/aclearworld/kuso-app#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/plugin-transform-parameters": "7.2.0",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-typescript": "^7.7.4",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.16",
+    "@types/webpack": "^4.41.0",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prefer-arrow": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "core-js": "^2.6.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
+  }
+}
