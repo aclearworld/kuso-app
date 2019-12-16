@@ -5,53 +5,88 @@
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>emoji-tw</title>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:700,400">
   <meta name="description" content="emoji-tw">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:700,400">
   <link rel="stylesheet" href="./normalize.css"/>
+  <link rel="stylesheet" href="./loading.css"/>
   <link rel="stylesheet" href="./index.css"/>
   <script src="../dist/bundle.js"></script>
 </head>
 <body>
 
-<header class="header">
-  <h1 class="site-title">絵文字で固有名詞を隠して楽しく呟こう</h1>
-</header>
+<div class="app-root">
 
-<section class="about" id="about">
-  <h2 class="heading">このサイトは固有名詞をランダムな絵文字に変換してTwitterに投稿できるサイトです</h2>
-</section>
+  <header class="header">
+    <h1 class="site-title">絵文字で固有名詞を隠して楽しく呟こう</h1>
+  </header>
 
-<main class="main">
-  <section class="input-root" id="input-root">
-    <form class="input-form">
-      <label for="input" about="input-form">何か入力してみましょう</label>
-      <textarea id="input" class="input" name="input" rows="10" cols="100"></textarea>
-    </form>
-  </section>
-  <section class="display-root" id="display-root">
-    <h2 class="heading">変換結果</h2>
-    <div class="display-wrap">
-      <p class="display emoji" id="display"></p>
+  <main class="main">
+    <section class="about" id="about">
+      <h2 class="heading">このサイトは固有名詞をランダムな絵文字に変換してTwitterに投稿できるサイトです</h2>
+    </section>
+    <section class="input-root" id="input-root">
+      <form class="input-form">
+        <label for="input" about="input-form">何か入力してみましょう</label>
+        <textarea id="input" class="input" name="input" rows="10" cols="10"></textarea>
+      </form>
+    </section>
+    <section class="display-root" id="display-root">
+      <h2 class="heading">変換結果</h2>
+      <div class="display-wrap">
+        <p class="display emoji" id="display"></p>
+      </div>
+    </section>
+    <section class="tweet-root" id="tweet-root">
+      <button type="button" id="tweet">呟く</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <ul>
+      <li>製作者Twitter</li>
+      <li>ソースコード</li>
+      <li>Qiita</li>
+      <li>お仕事募集中</li>
+    </ul>
+  </footer>
+</div>
+
+<div class="loading-root" id="loading-root">
+  <div class="loading-container">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="loading-text-root">
+      <div class="loading-text-author loading-text-animation">emoji-tw from kotatu 2019</div>
+      <div class="loading-text-dictionary loading-text-animation">Loading Dictionary...</div>
+      <div class="loader loader--style1" id="loader" title="0">
+        <!-- original https://codepen.io/aurer/details/jEGbA -->
+        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             x="0px" y="0px"
+             width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+  <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+          <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+    C22.32,8.481,24.301,9.057,26.013,10.047z">
+    <animateTransform attributeType="xml"
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 20 20"
+                      to="360 20 20"
+                      dur="0.5s"
+                      repeatCount="indefinite"/>
+    </path>
+  </svg>
+      </div>
     </div>
-  </section>
-  <section class="tweet-root" id="tweet-root">
-    <button type="button" id="tweet">呟く</button>
-  </section>
-</main>
-
-<footer class="footer">
-  <ul>
-    <li>製作者Twitter</li>
-    <li>ソースコード</li>
-    <li>Qiita</li>
-    <li>お仕事募集中</li>
-  </ul>
-</footer>
+  </div>
+</div>
 
 </body>
 
-<!--************************************************************************* Dependencies Licenses *************************************************************************-->
+<!--***************************** Dependencies Licenses **********************-->
 
 <!--Apache License-->
 <!--Version 2.0, January 2004-->
@@ -275,5 +310,10 @@
 <!--LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,-->
 <!--OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN-->
 <!--THE SOFTWARE.-->
+
+<!--Copyright (c) 2019 by Aurer (https://codepen.io/aurer/pen/jEGbA)-->
+<!--Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:-->
+<!--The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.-->
+<!--THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
 
 </html>

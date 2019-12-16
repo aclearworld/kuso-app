@@ -1,0 +1,123 @@
+.loading-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 150vh;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.loading-container {
+  position: absolute;
+  top: calc(33% - 40vh);
+  left: calc(50% - 40vw);
+  width: 80vw;
+  height: 80vh;
+  color: black;
+}
+
+.circle {
+  position: absolute;
+  top: calc(50% - 250px);
+  left: calc(50% - 250px);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: solid 3px black;
+  transform-origin: center;
+  animation-name: grows, feedOut;
+  animation-duration: 1500ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.circle1 {
+  animation-delay: 0ms;
+}
+
+.circle2 {
+  animation-delay: 300ms;
+}
+
+@keyframes grows {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes feedOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.loading-text-root {
+  position: relative;
+  display: inline-block;
+  margin: 15vh 0 15px;
+  padding-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+@media screen and (min-width: 1280px) {
+  .loading-text-root {
+    margin-top: 35vh;
+    margin-left: 20vw;
+  }
+}
+
+.loading-text-author {
+  font-size: 3rem;
+  padding-bottom: 15px;
+  animation-delay: 1200ms;
+}
+
+.loading-text-dictionary {
+  font-size: 2rem;
+  animation-delay: 1500ms;
+}
+
+.loading-text-animation {
+  transform-origin: center;
+  animation-name: down, feedIn;
+  animation-duration: 700ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes down {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes feedIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  visibility: hidden;
+}
+
+svg path,
+svg rect {
+  fill: #FF6700;
+}

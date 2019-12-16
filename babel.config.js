@@ -15,6 +15,7 @@ const plugins = [
   ['@babel/proposal-class-properties', { loose: true }],
   ['@babel/proposal-object-rest-spread', { loose: true }],
   ['@babel/plugin-transform-parameters', { loose: true }],
+  ['@babel/plugin-proposal-optional-chaining'],
 ]
 
 module.exports = function(api) {

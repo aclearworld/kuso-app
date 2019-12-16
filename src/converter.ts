@@ -28,7 +28,7 @@ const watchInput = () => {
 
   textarea.addEventListener('change', event => {
     const e = event as HTMLElementEvent<HTMLTextAreaElement>
-    if (!e || !e.target || !e.target.value || !e.target.value.trim()) return
+    if (!e?.target?.value?.trim()) return
     if (!window.Kuromoji.tokenizer || window.Kuromoji.failedInit) return
 
     const tokens = window.Kuromoji.tokenizer.tokenize(e.target.value.trim())
