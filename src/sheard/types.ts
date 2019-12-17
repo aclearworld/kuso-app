@@ -1,6 +1,6 @@
 import { IpadicFeatures, Tokenizer } from 'kuromoji'
 
-export interface HTMLElementEvent<T extends HTMLElement> extends Event {
+export interface OverrideEvent<T extends HTMLElement> extends Event {
   target: T
 }
 

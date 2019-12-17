@@ -1,17 +1,7 @@
-import watchInput from './converter'
 import { builder } from 'kuromoji'
-
-const displayLoadingCircle = () => {
-  setTimeout(() => {
-    const loader = document.querySelector<HTMLDivElement>('#loader')
-    if (loader) loader.style.visibility = 'visible'
-  }, 2300)
-}
-
-const removeLoadingPage = () => {
-  const loadingPage = document.querySelector<HTMLDivElement>('#loading-root')
-  if (loadingPage) loadingPage.remove()
-}
+import { displayLoadingCircle, removeLoadingPage } from './Components/loading'
+import watchTweetButton from './Components/tweetButton'
+import watchInput from './Components/displayEmojiTweet'
 
 const initKuromoji = () => {
   window.Kuromoji = {
@@ -42,6 +32,7 @@ const bootstrap = () => {
   displayLoadingCircle()
   initKuromoji()
   watchInput()
+  watchTweetButton()
 }
 
 export default bootstrap

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>emoji-tw</title>
-  <meta name="description" content="emoji-tw">
+  <meta name="description" content="絵文字で名詞を隠して楽しくTwitter">
   <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
   <!--  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:700,400">
@@ -19,17 +19,17 @@
 <div class="app-root">
 
   <header class="header">
-    <h1 class="site-title">絵文字で固有名詞を隠して楽しく呟こう</h1>
+    <h1 class="site-title" id="site-title">絵文字で名詞を隠して楽しくTwitter</h1>
   </header>
 
   <main class="main">
     <section class="about" id="about">
-      <h2 class="heading">このサイトは固有名詞をランダムな絵文字に変換してTwitterに投稿できるサイトです</h2>
+      <h2 class="heading">このサイトは名詞をランダムな絵文字に変換してTwitterに投稿できるサイトです</h2>
     </section>
     <section class="input-root" id="input-root">
       <form class="input-form">
         <label for="input" about="input-form">何か入力してみましょう</label>
-        <textarea id="input" class="input" name="input" rows="10" cols="10"></textarea>
+        <textarea id="input" class="input" name="input" rows="10"></textarea>
       </form>
     </section>
     <section class="display-root" id="display-root">
@@ -39,7 +39,7 @@
       </div>
     </section>
     <section class="tweet-root" id="tweet-root">
-      <button type="button" id="tweet">呟く</button>
+      <button class="button" type="button" id="tweet-button">Tweet</button>
     </section>
   </main>
 
