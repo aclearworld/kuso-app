@@ -6,8 +6,8 @@ const path = require('path')
 module.exports = {
   entry: ['./src/index.ts'],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/js/',
+    path: path.resolve(__dirname, 'dist/dist'),
+    publicPath: '/dist/',
     filename: 'bundle.js',
   },
   module: {
