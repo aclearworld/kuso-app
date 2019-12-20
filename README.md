@@ -1,2 +1,2 @@
-# kuso-app
-クソアプリ
+# emoji-tw
+[emoji-tw](https://emoji-tw.web.app/)
