@@ -117,7 +117,7 @@
   visibility: hidden;
 }
 
-svg path,
-svg rect {
+.loader svg path,
+.loader svg rect {
   fill: #FF6700;
 }

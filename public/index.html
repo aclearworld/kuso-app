@@ -29,7 +29,7 @@
     <div class="input-root" id="input-root">
       <form class="input-form">
         <label for="input" about="input-form">何か入力してみましょう</label>
-        <textarea id="input" class="input" name="input" rows="10"></textarea>
+        <textarea id="input" class="input tweet-input" name="input" rows="10"></textarea>
       </form>
     </div>
     <section class="display-root" id="display-root">
@@ -39,16 +39,59 @@
       </div>
     </section>
     <div class="tweet-root" id="tweet-root">
-      <button class="button" type="button" id="tweet-button">Tweet</button>
+      <button class="button tweet-button" type="button" id="tweet-button">Tweet</button>
     </div>
   </main>
 
   <footer class="footer">
     <ul>
-      <li>製作者Twitter</li>
-      <li>ソースコード</li>
-      <li>Qiita</li>
-      <li>お仕事募集中</li>
+      <li>製作者Twitter<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                       href="https://twitter.com/CV67145418">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109.95 95.6" class="icon">
+            <title>Twitter</title>
+            <path
+              d="M34.54,95.6C76,95.6,98.73,58.81,98.73,27c0-1,0-2.07,0-3.11A47.88,47.88,0,0,0,110,11.34a43.35,43.35,0,0,1-13,3.81,24,24,0,0,0,9.94-13.36A43.13,43.13,0,0,1,92.57,7.62,21.87,21.87,0,0,0,76.12,0C63.66,0,53.55,10.82,53.55,24.14a28.58,28.58,0,0,0,.57,5.5C35.37,28.65,18.74,19,7.61,4.42a25.52,25.52,0,0,0-3,12.14,24.66,24.66,0,0,0,10,20.09,21.68,21.68,0,0,1-10.21-3V34c0,11.67,7.79,21.45,18.08,23.66a20.46,20.46,0,0,1-5.94.85,20.9,20.9,0,0,1-4.22-.42c2.86,9.59,11.22,16.56,21.07,16.75a43.42,43.42,0,0,1-28,10.35A41.52,41.52,0,0,1,0,84.83,61.21,61.21,0,0,0,34.54,95.6"/>
+          </svg>
+        </div>
+      </a>
+      </li>
+      <li>ソースコード<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                   href="https://github.com/aclearworld/emoji-tw">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120.78 117.79" class="icon">
+            <title>GitHub</title>
+            <path
+              d="M60.39,0A60.39,60.39,0,0,0,41.3,117.69c3,.56,4.12-1.31,4.12-2.91,0-1.44-.05-6.19-.08-11.24C28.54,107.19,25,96.42,25,96.42c-2.75-7-6.71-8.84-6.71-8.84-5.48-3.75.41-3.67.41-3.67,6.07.43,9.26,6.22,9.26,6.22,5.39,9.23,14.13,6.57,17.57,5,.55-3.9,2.11-6.56,3.84-8.07C36,85.55,21.85,80.37,21.85,57.23A23.35,23.35,0,0,1,28.08,41c-.63-1.52-2.7-7.66.58-16,0,0,5.07-1.62,16.61,6.19a57.36,57.36,0,0,1,30.25,0C87,23.42,92.11,25,92.11,25c3.28,8.32,1.22,14.46.59,16a23.34,23.34,0,0,1,6.21,16.21c0,23.2-14.12,28.3-27.57,29.8,2.16,1.87,4.09,5.55,4.09,11.18,0,8.08-.06,14.59-.06,16.57,0,1.61,1.08,3.49,4.14,2.9A60.39,60.39,0,0,0,60.39,0Z"/>
+          </svg>
+        </div>
+      </a>
+      </li>
+      <li>Qiita<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                  href="https://scrapbox.io/KotatuDev/%E3%83%8D%E3%82%BF%E3%81%A7%E5%B0%8F%E3%81%95%E3%81%84%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F%E8%A9%B1">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.3 256" class="icon">
+            <title>Qiita</title>
+            <rect fill="#59bb0c" width="256" height="256"/>
+            <path
+              d="M211,181a144.16,144.16,0,0,0,27.76-85.58A141.07,141.07,0,0,0,201.39,0H0V200.34c24.81,23.2,58.65,37.9,98.17,37.9a140.47,140.47,0,0,0,81.07-26.12L224.8,256l31.5-31.83ZM97.32,193.24A97.2,97.2,0,0,1,82.42,0h29.81A97.2,97.2,0,0,1,97.32,193.24Z"/>
+          </svg>
+        </div>
+      </a>
+      </li>
+      <li>お仕事募集中<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                   href="https://scrapbox.io/KotatuDev/%E3%81%8A%E4%BB%95%E4%BA%8B%E5%8B%9F%E9%9B%86%E4%B8%AD%E3%81%A7%E3%81%99">
+        <div>
+          <!-- original https://fontawesome.com/icons/external-link-alt -->
+          <svg aria-hidden="true" data-prefix="fas" data-icon="external-link-alt"
+               class="icon" role="img" xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 512 512">
+            <path fill="currentColor"
+                  d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+          </svg>
+        </div>
+      </a>
+      </li>
     </ul>
   </footer>
 </div>
