@@ -9,8 +9,6 @@ const initKuromoji = () => {
     failedInit: true,
   }
 
-  // const dicPath = process.env.NODE_ENV === 'production' ? ''
-
   builder({ dicPath: './dict' }).build((err, tokenizer) => {
     if (err) {
       alert('Sorry! Failed load dictionary. Please try again later.')

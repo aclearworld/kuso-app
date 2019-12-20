@@ -10,9 +10,6 @@ const inputHandle = (event: Event) => {
   if (!window.Kuromoji.tokenizer || window.Kuromoji.failedInit) return
 
   const tokens = window.Kuromoji.tokenizer.tokenize(e.target.value.trim())
-
-  console.log(tokens)
-
   displayPlace.textContent = converter(tokens)
 }
 

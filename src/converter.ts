@@ -12,8 +12,8 @@ const converter = (tokens: IpadicFeatures[]): string => {
   return tokens
     .map(token => {
       if (
-        (token.pos === '名詞' && token.pos_detail_1 === '固有名詞') ||
-        token.pos_detail_1 === '一般'
+        token.pos === '名詞' &&
+        (token.pos_detail_1 === '固有名詞' || token.pos_detail_1 === '一般')
       )
         return randomChoiceEmoji()
 
