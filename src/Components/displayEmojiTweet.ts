@@ -9,16 +9,15 @@ const inputHandle = (event: Event) => {
   if (!e?.target?.value?.trim()) return
   if (!window.Kuromoji.tokenizer || window.Kuromoji.failedInit) return
 
-  const tokens = window.Kuromoji.tokenizer.tokenize(e.target.value.trim())
-  displayPlace.textContent = converter(tokens)
+  displayPlace.textContent = converter(e.target.value.trim())
 }
 
-const watchInput = () => {
+export const watchInput = (handler: (event: Event) => void) => {
   const textarea = document.querySelector<HTMLTextAreaElement>('#input')
   if (!textarea) return
 
-  textarea.addEventListener('keydown', inputHandle)
-  textarea.addEventListener('change', inputHandle)
+  textarea.addEventListener('keydown', handler)
+  textarea.addEventListener('change', handler)
 }
 
-export default watchInput
+export default () => watchInput(inputHandle)

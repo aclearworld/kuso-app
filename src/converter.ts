@@ -1,4 +1,3 @@
-import { IpadicFeatures } from 'kuromoji'
 import { randomChoiceFromArray } from './sheard/utilty'
 import { emojiList } from './emoji'
 
@@ -8,18 +7,22 @@ const randomChoiceEmoji = (): string => {
   return String.fromCodePoint(choice || 0x231a)
 }
 
-const converter = (tokens: IpadicFeatures[]): string => {
+export const converter = (text: string, getEmoji: () => string): string => {
+  if (!window.Kuromoji.tokenizer || window.Kuromoji.failedInit) return text
+
+  const tokens = window.Kuromoji.tokenizer.tokenize(text)
+
   return tokens
     .map(token => {
       if (
         token.pos === '名詞' &&
         (token.pos_detail_1 === '固有名詞' || token.pos_detail_1 === '一般')
       )
-        return randomChoiceEmoji()
+        return getEmoji()
 
       return token.surface_form
     })
     .join('')
 }
 
-export default converter
+export default (text: string): string => converter(text, randomChoiceEmoji)
