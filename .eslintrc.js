@@ -93,7 +93,7 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', {
-      devDependencies: ['spec/**', 'test/**', 'tests/**', '**/__tests__/**', '*.config.js', '**/*.test.ts'],
+      devDependencies: ['spec/**', 'test/**', 'tests/**', '**/__tests__/**', '*.config.js', '**/*.test.ts', 'webpack.*'],
       optionalDependencies: false,
     }],
 
@@ -131,6 +131,7 @@ module.exports = {
         indent: 'off',
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+        '@typescript-eslint/no-namespace': 'warn',
       }
     }
   ]

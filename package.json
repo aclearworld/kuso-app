@@ -1,19 +1,20 @@
 {
-  "name": "kuso-app",
+  "name": "emoji-tw",
   "version": "1.0.0",
-  "description": "クソアプリ",
+  "description": "emoji-tw",
   "main": "src/index.ts",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --progress",
+    "start": "webpack-dev-server --progress --config webpack.dev.js",
     "prebuild": "rimraf dist",
     "build": "npm run type-check && npm-run-all --parallel lint:fix test:no-coverage webpack:prod",
     "type-check": "tsc",
-    "lint:fix": "eslint --ext ./ \"src/**/*.ts\"  --fix",
+    "lint:fix": "eslint --ext .ts --fix src/",
     "test:no-coverage": "jest --no-coverage",
-    "webpack:prod": "webpack --progress --display-modules --mode=production",
-    "postbuild": "echo \"build successful!!\"",
-    "webpack:dev": "webpack --progress --display-modules --mode=development",
+    "webpack:prod": "webpack --progress --display-modules --config webpack.prod.js",
+    "postbuild": "cp ./public/* ./dist -a && echo \"build successful!!\"",
+    "deploy": "firebase deploy",
+    "webpack:dev": "webpack --progress --display-modules --config webpack.dev.js",
     "test": "jest",
     "test:dev": "jest --watch --no-coverage"
   },
@@ -22,7 +23,8 @@
     "url": "git+https://github.com/aclearworld/kuso-app.git"
   },
   "keywords": [
-    "kuso-app"
+    "emoji",
+    "twiiter"
   ],
   "author": "kotatu <yamamichi1995@outlook.jp> (https://github.com/aclearworld)",
   "license": "MIT",
@@ -34,11 +36,13 @@
     "@babel/core": "^7.7.5",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",
     "@babel/plugin-transform-parameters": "7.2.0",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-typescript": "^7.7.4",
     "@types/jest": "^24.0.23",
+    "@types/kuromoji": "^0.1.0",
     "@types/node": "^12.12.16",
     "@types/webpack": "^4.41.0",
     "@typescript-eslint/eslint-plugin": "^2.11.0",
@@ -63,10 +67,13 @@
     "typescript": "^3.7.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "core-js": "^2.6.11"
+    "core-js": "^2.6.11",
+    "firebase": "^7.6.0",
+    "kuromoji": "^0.1.2"
   },
   "husky": {
     "hooks": {

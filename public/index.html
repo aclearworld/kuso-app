@@ -1,17 +1,372 @@
 <!doctype html>
 <html lang="jp">
 
-<head>
-  <meta charset="utf-8">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>emoji-tw</title>
-  <meta name="description" content="editor-js-sample">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="絵文字で名詞を隠して楽しくTwitter">
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
+
+  <!--  OGP  -->
+  <meta property="og:url" content="https://emoji-tw.web.app/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="emoji-tw"/>
+  <meta property="og:description" content="絵文字で名詞を隠して楽しくTwitter"/>
+  <meta property="og:site_name" content="emoji-tw"/>
+  <meta property="og:image" content="https://emoji-tw.web.app/akane_icon.jpg"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@CV67145418">
+
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:700,400">
+  <link rel="stylesheet" href="./normalize.css"/>
+  <link rel="stylesheet" href="./loading.css"/>
   <link rel="stylesheet" href="./index.css"/>
-  <script src="../dist/bundle.js"></script>
-</head>
+  <script src="./dist/bundle.js"></script>
 <body>
-<div id="root">
+
+<div class="app-root">
+
+  <header class="header">
+    <h1 class="site-title" id="site-title">絵文字で名詞を隠して楽しくTwitter</h1>
+  </header>
+
+  <main class="main">
+    <section class="about" id="about">
+      <h2 class="heading">このサイトは名詞をランダムな絵文字に変換してTwitterに投稿できるサイトです</h2>
+    </section>
+    <div class="input-root" id="input-root">
+      <form class="input-form">
+        <label for="input" about="input-form">何か入力してみましょう</label>
+        <textarea id="input" class="input tweet-input" name="input" rows="10"></textarea>
+      </form>
+    </div>
+    <section class="display-root" id="display-root">
+      <h2 class="heading">変換結果</h2>
+      <div class="display-wrap">
+        <p class="display emoji" id="display"></p>
+      </div>
+    </section>
+    <div class="tweet-root" id="tweet-root">
+      <button class="button tweet-button" type="button" id="tweet-button">Tweet</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <ul>
+      <li>製作者Twitter<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                       href="https://twitter.com/CV67145418">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109.95 95.6" class="icon">
+            <title>Twitter</title>
+            <path
+              d="M34.54,95.6C76,95.6,98.73,58.81,98.73,27c0-1,0-2.07,0-3.11A47.88,47.88,0,0,0,110,11.34a43.35,43.35,0,0,1-13,3.81,24,24,0,0,0,9.94-13.36A43.13,43.13,0,0,1,92.57,7.62,21.87,21.87,0,0,0,76.12,0C63.66,0,53.55,10.82,53.55,24.14a28.58,28.58,0,0,0,.57,5.5C35.37,28.65,18.74,19,7.61,4.42a25.52,25.52,0,0,0-3,12.14,24.66,24.66,0,0,0,10,20.09,21.68,21.68,0,0,1-10.21-3V34c0,11.67,7.79,21.45,18.08,23.66a20.46,20.46,0,0,1-5.94.85,20.9,20.9,0,0,1-4.22-.42c2.86,9.59,11.22,16.56,21.07,16.75a43.42,43.42,0,0,1-28,10.35A41.52,41.52,0,0,1,0,84.83,61.21,61.21,0,0,0,34.54,95.6"/>
+          </svg>
+        </div>
+      </a>
+      </li>
+      <li>ソースコード<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                   href="https://github.com/aclearworld/emoji-tw">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120.78 117.79" class="icon">
+            <title>GitHub</title>
+            <path
+              d="M60.39,0A60.39,60.39,0,0,0,41.3,117.69c3,.56,4.12-1.31,4.12-2.91,0-1.44-.05-6.19-.08-11.24C28.54,107.19,25,96.42,25,96.42c-2.75-7-6.71-8.84-6.71-8.84-5.48-3.75.41-3.67.41-3.67,6.07.43,9.26,6.22,9.26,6.22,5.39,9.23,14.13,6.57,17.57,5,.55-3.9,2.11-6.56,3.84-8.07C36,85.55,21.85,80.37,21.85,57.23A23.35,23.35,0,0,1,28.08,41c-.63-1.52-2.7-7.66.58-16,0,0,5.07-1.62,16.61,6.19a57.36,57.36,0,0,1,30.25,0C87,23.42,92.11,25,92.11,25c3.28,8.32,1.22,14.46.59,16a23.34,23.34,0,0,1,6.21,16.21c0,23.2-14.12,28.3-27.57,29.8,2.16,1.87,4.09,5.55,4.09,11.18,0,8.08-.06,14.59-.06,16.57,0,1.61,1.08,3.49,4.14,2.9A60.39,60.39,0,0,0,60.39,0Z"/>
+          </svg>
+        </div>
+      </a>
+      </li>
+      <li>Qiita<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                  href="https://scrapbox.io/KotatuDev/%E3%83%8D%E3%82%BF%E3%81%A7%E5%B0%8F%E3%81%95%E3%81%84%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F%E8%A9%B1">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.3 256" class="icon">
+            <title>Qiita</title>
+            <rect fill="#59bb0c" width="256" height="256"/>
+            <path
+              d="M211,181a144.16,144.16,0,0,0,27.76-85.58A141.07,141.07,0,0,0,201.39,0H0V200.34c24.81,23.2,58.65,37.9,98.17,37.9a140.47,140.47,0,0,0,81.07-26.12L224.8,256l31.5-31.83ZM97.32,193.24A97.2,97.2,0,0,1,82.42,0h29.81A97.2,97.2,0,0,1,97.32,193.24Z"/>
+          </svg>
+        </div>
+      </a>
+      </li>
+      <li>お仕事募集中<a class="icon-link-anchor" rel="noopener noreferrer" target="_blank"
+                   href="https://scrapbox.io/KotatuDev/%E3%81%8A%E4%BB%95%E4%BA%8B%E5%8B%9F%E9%9B%86%E4%B8%AD%E3%81%A7%E3%81%99">
+        <div>
+          <!-- original https://fontawesome.com/icons/external-link-alt -->
+          <svg aria-hidden="true" data-prefix="fas" data-icon="external-link-alt"
+               class="icon" role="img" xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 512 512">
+            <path fill="currentColor"
+                  d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+          </svg>
+        </div>
+      </a>
+      </li>
+    </ul>
+  </footer>
 </div>
+
+<div class="loading-root" id="loading-root">
+  <div class="loading-container">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="loading-text-root">
+      <div class="loading-text-author loading-text-animation">emoji-tw from kotatu 2019</div>
+      <div class="loading-text-dictionary loading-text-animation">Loading Dictionary...</div>
+      <div class="loader loader--style1" id="loader" title="0">
+        <!-- original https://codepen.io/aurer/details/jEGbA -->
+        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             x="0px" y="0px"
+             width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+          <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+            s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+            c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+          <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+            C22.32,8.481,24.301,9.057,26.013,10.047z">
+            <animateTransform attributeType="xml"
+                              attributeName="transform"
+                              type="rotate"
+                              from="0 20 20"
+                              to="360 20 20"
+                              dur="0.5s"
+                              repeatCount="indefinite"/>
+          </path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
+
+<!--***************************** Dependencies Licenses **********************-->
+
+<!--Apache License-->
+<!--Version 2.0, January 2004-->
+<!--http://www.apache.org/licenses/-->
+
+<!--TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION-->
+
+<!--1. Definitions.-->
+
+<!--"License" shall mean the terms and conditions for use, reproduction,-->
+<!--and distribution as defined by Sections 1 through 9 of this document.-->
+
+<!--"Licensor" shall mean the copyright owner or entity authorized by-->
+<!--the copyright owner that is granting the License.-->
+
+<!--"Legal Entity" shall mean the union of the acting entity and all-->
+<!--other entities that control, are controlled by, or are under common-->
+<!--control with that entity. For the purposes of this definition,-->
+<!--"control" means (i) the power, direct or indirect, to cause the-->
+<!--direction or management of such entity, whether by contract or-->
+<!--otherwise, or (ii) ownership of fifty percent (50%) or more of the-->
+<!--outstanding shares, or (iii) beneficial ownership of such entity.-->
+
+<!--"You" (or "Your") shall mean an individual or Legal Entity-->
+<!--exercising permissions granted by this License.-->
+
+<!--"Source" form shall mean the preferred form for making modifications,-->
+<!--including but not limited to software source code, documentation-->
+<!--source, and configuration files.-->
+
+<!--"Object" form shall mean any form resulting from mechanical-->
+<!--transformation or translation of a Source form, including but-->
+<!--not limited to compiled object code, generated documentation,-->
+<!--and conversions to other media types.-->
+
+<!--"Work" shall mean the work of authorship, whether in Source or-->
+<!--Object form, made available under the License, as indicated by a-->
+<!--copyright notice that is included in or attached to the work-->
+<!--(an example is provided in the Appendix below).-->
+
+<!--"Derivative Works" shall mean any work, whether in Source or Object-->
+<!--form, that is based on (or derived from) the Work and for which the-->
+<!--editorial revisions, annotations, elaborations, or other modifications-->
+<!--represent, as a whole, an original work of authorship. For the purposes-->
+<!--of this License, Derivative Works shall not include works that remain-->
+<!--separable from, or merely link (or bind by name) to the interfaces of,-->
+<!--the Work and Derivative Works thereof.-->
+
+<!--"Contribution" shall mean any work of authorship, including-->
+<!--the original version of the Work and any modifications or additions-->
+<!--to that Work or Derivative Works thereof, that is intentionally-->
+<!--submitted to Licensor for inclusion in the Work by the copyright owner-->
+<!--or by an individual or Legal Entity authorized to submit on behalf of-->
+<!--the copyright owner. For the purposes of this definition, "submitted"-->
+<!--means any form of electronic, verbal, or written communication sent-->
+<!--to the Licensor or its representatives, including but not limited to-->
+<!--communication on electronic mailing lists, source code control systems,-->
+<!--and issue tracking systems that are managed by, or on behalf of, the-->
+<!--Licensor for the purpose of discussing and improving the Work, but-->
+<!--excluding communication that is conspicuously marked or otherwise-->
+<!--designated in writing by the copyright owner as "Not a Contribution."-->
+
+<!--"Contributor" shall mean Licensor and any individual or Legal Entity-->
+<!--on behalf of whom a Contribution has been received by Licensor and-->
+<!--subsequently incorporated within the Work.-->
+
+<!--2. Grant of Copyright License. Subject to the terms and conditions of-->
+<!--this License, each Contributor hereby grants to You a perpetual,-->
+<!--worldwide, non-exclusive, no-charge, royalty-free, irrevocable-->
+<!--copyright license to reproduce, prepare Derivative Works of,-->
+<!--publicly display, publicly perform, sublicense, and distribute the-->
+<!--Work and such Derivative Works in Source or Object form.-->
+
+<!--3. Grant of Patent License. Subject to the terms and conditions of-->
+<!--this License, each Contributor hereby grants to You a perpetual,-->
+<!--worldwide, non-exclusive, no-charge, royalty-free, irrevocable-->
+<!--(except as stated in this section) patent license to make, have made,-->
+<!--use, offer to sell, sell, import, and otherwise transfer the Work,-->
+<!--where such license applies only to those patent claims licensable-->
+<!--by such Contributor that are necessarily infringed by their-->
+<!--Contribution(s) alone or by combination of their Contribution(s)-->
+<!--with the Work to which such Contribution(s) was submitted. If You-->
+<!--institute patent litigation against any entity (including a-->
+<!--cross-claim or counterclaim in a lawsuit) alleging that the Work-->
+<!--or a Contribution incorporated within the Work constitutes direct-->
+<!--or contributory patent infringement, then any patent licenses-->
+<!--granted to You under this License for that Work shall terminate-->
+<!--as of the date such litigation is filed.-->
+
+<!--4. Redistribution. You may reproduce and distribute copies of the-->
+<!--Work or Derivative Works thereof in any medium, with or without-->
+<!--modifications, and in Source or Object form, provided that You-->
+<!--meet the following conditions:-->
+
+<!--(a) You must give any other recipients of the Work or-->
+<!--Derivative Works a copy of this License; and-->
+
+<!--(b) You must cause any modified files to carry prominent notices-->
+<!--stating that You changed the files; and-->
+
+<!--(c) You must retain, in the Source form of any Derivative Works-->
+<!--that You distribute, all copyright, patent, trademark, and-->
+<!--attribution notices from the Source form of the Work,-->
+<!--excluding those notices that do not pertain to any part of-->
+<!--the Derivative Works; and-->
+
+<!--(d) If the Work includes a "NOTICE" text file as part of its-->
+<!--distribution, then any Derivative Works that You distribute must-->
+<!--include a readable copy of the attribution notices contained-->
+<!--within such NOTICE file, excluding those notices that do not-->
+<!--pertain to any part of the Derivative Works, in at least one-->
+<!--of the following places: within a NOTICE text file distributed-->
+<!--as part of the Derivative Works; within the Source form or-->
+<!--documentation, if provided along with the Derivative Works; or,-->
+<!--within a display generated by the Derivative Works, if and-->
+<!--wherever such third-party notices normally appear. The contents-->
+<!--of the NOTICE file are for informational purposes only and-->
+<!--do not modify the License. You may add Your own attribution-->
+<!--notices within Derivative Works that You distribute, alongside-->
+<!--or as an addendum to the NOTICE text from the Work, provided-->
+<!--that such additional attribution notices cannot be construed-->
+<!--as modifying the License.-->
+
+<!--You may add Your own copyright statement to Your modifications and-->
+<!--may provide additional or different license terms and conditions-->
+<!--for use, reproduction, or distribution of Your modifications, or-->
+<!--for any such Derivative Works as a whole, provided Your use,-->
+<!--reproduction, and distribution of the Work otherwise complies with-->
+<!--the conditions stated in this License.-->
+
+<!--5. Submission of Contributions. Unless You explicitly state otherwise,-->
+<!--any Contribution intentionally submitted for inclusion in the Work-->
+<!--by You to the Licensor shall be under the terms and conditions of-->
+<!--this License, without any additional terms or conditions.-->
+<!--Notwithstanding the above, nothing herein shall supersede or modify-->
+<!--the terms of any separate license agreement you may have executed-->
+<!--with Licensor regarding such Contributions.-->
+
+<!--6. Trademarks. This License does not grant permission to use the trade-->
+<!--names, trademarks, service marks, or product names of the Licensor,-->
+<!--except as required for reasonable and customary use in describing the-->
+<!--origin of the Work and reproducing the content of the NOTICE file.-->
+
+<!--7. Disclaimer of Warranty. Unless required by applicable law or-->
+<!--agreed to in writing, Licensor provides the Work (and each-->
+<!--Contributor provides its Contributions) on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or-->
+<!--implied, including, without limitation, any warranties or conditions-->
+<!--of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A-->
+<!--PARTICULAR PURPOSE. You are solely responsible for determining the-->
+<!--appropriateness of using or redistributing the Work and assume any-->
+<!--risks associated with Your exercise of permissions under this License.-->
+
+<!--8. Limitation of Liability. In no event and under no legal theory,-->
+<!--whether in tort (including negligence), contract, or otherwise,-->
+<!--unless required by applicable law (such as deliberate and grossly-->
+<!--negligent acts) or agreed to in writing, shall any Contributor be-->
+<!--liable to You for damages, including any direct, indirect, special,-->
+<!--incidental, or consequential damages of any character arising as a-->
+<!--result of this License or out of the use or inability to use the-->
+<!--Work (including but not limited to damages for loss of goodwill,-->
+<!--work stoppage, computer failure or malfunction, or any and all-->
+<!--other commercial damages or losses), even if such Contributor-->
+<!--has been advised of the possibility of such damages.-->
+
+<!--9. Accepting Warranty or Additional Liability. While redistributing-->
+<!--the Work or Derivative Works thereof, You may choose to offer,-->
+<!--and charge a fee for, acceptance of support, warranty, indemnity,-->
+<!--or other liability obligations and/or rights consistent with this-->
+<!--License. However, in accepting such obligations, You may act only-->
+<!--on Your own behalf and on Your sole responsibility, not on behalf-->
+<!--of any other Contributor, and only if You agree to indemnify,-->
+<!--defend, and hold each Contributor harmless for any liability-->
+<!--incurred by, or claims asserted against, such Contributor by reason-->
+<!--of your accepting any such warranty or additional liability.-->
+
+<!--END OF TERMS AND CONDITIONS-->
+
+<!--APPENDIX: How to apply the Apache License to your work.-->
+
+<!--To apply the Apache License to your work, attach the following-->
+<!--boilerplate notice, with the fields enclosed by brackets "[]"-->
+<!--replaced with your own identifying information. (Don't include-->
+<!--the brackets!)  The text should be enclosed in the appropriate-->
+<!--comment syntax for the file format. We also recommend that a-->
+<!--file or class name and description of purpose be included on the-->
+<!--same "printed page" as the copyright notice for easier-->
+<!--identification within third-party archives.-->
+
+<!--Copyright [yyyy] [name of copyright owner]-->
+
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
+
+
+<!--Copyright (c) 2014-2019 Denis Pushkarev-->
+
+<!--Permission is hereby granted, free of charge, to any person obtaining a copy-->
+<!--of this software and associated documentation files (the "Software"), to deal-->
+<!--in the Software without restriction, including without limitation the rights-->
+<!--to use, copy, modify, merge, publish, distribute, sublicense, and/or sell-->
+<!--copies of the Software, and to permit persons to whom the Software is-->
+<!--furnished to do so, subject to the following conditions:-->
+
+<!--The above copyright notice and this permission notice shall be included in-->
+<!--all copies or substantial portions of the Software.-->
+
+<!--THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR-->
+<!--IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,-->
+<!--FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE-->
+<!--AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER-->
+<!--LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,-->
+<!--OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN-->
+<!--THE SOFTWARE.-->
+
+<!--Copyright (c) 2019 by Aurer (https://codepen.io/aurer/pen/jEGbA)-->
+<!--Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:-->
+<!--The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.-->
+<!--THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
+
 </html>
